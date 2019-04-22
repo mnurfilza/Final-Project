@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator</title>
+
+    <style>
+    .container{
+    position: absolute; 
+    margin: 15% 35% 15% 35%;
+    border: 1px solid black;
+}
+
+input{
+    border: none;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    padding: 5% 0 5% 0;
+    background-color: #ccfff9;
+}
+
+label{
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.board button{
+    width:75px;
+    height: 55px;
+    border: none;
+    margin-top: 3%;
+}   
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label> Kalkulator Sederhana </label>
+        <input type="text" id="mainContent">
+        <div class="board">
+            <button id="clear" onclick="document.getElementById('mainContent').value=''">C</button>
+            <button id="tambah" onclick=" var data = document.getElementById('mainContent').value; document.getElementById('mainContent').value=`${data} + `">+</button>
+            <button id="kurang" onclick=" var data = document.getElementById('mainContent').value; document.getElementById('mainContent').value=`${data} - `">-</button>
+                <button id="kali" onclick=" var data = document.getElementById('mainContent').value; document.getElementById('mainContent').value=`${data} * `">*</button>
+            <button id="bagi"onclick=" var data = document.getElementById('mainContent').value; document.getElementById('mainContent').value=`${data} / `">/</button>
+            <button id="Hasil" onclick="
+            var data = document.getElementById('mainContent').value; 
+
+            if (data === ''){
+                document.getElementById('mainContent').value='';
+            } else{
+                let hasil = data.split(' '); 
+            let a = parseInt(hasil[0]); 
+            let b = parseInt(hasil[2]);
+            if (hasil[1] === '+'){
+                res = a + b
+                document.getElementById('mainContent').value =`${res}`;
+            } else if(hasil[1] === '-'){
+                res = a - b;
+                document.getElementById('mainContent').value =`${res}`;
+            } else  if(hasil[1] === '*'){
+                res = a * b
+                document.getElementById('mainContent').value =`${res}`;
+            }else if(hasil[1] === '/') {
+                res = a / b;
+                document.getElementById('mainContent').value = `${res}`;
+            }else{
+                document.getElementById('mainContent').value = `${res}`;
+            }
+            
+            }">=</button>
+        </div>
+    </div>
+</body>
+</html>
